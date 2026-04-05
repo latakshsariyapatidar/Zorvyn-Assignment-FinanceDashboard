@@ -23,13 +23,13 @@ export function InsightsPage({ breakdown, monthlyComparison, insightSummary }) {
   ))
 
   return (
-    <section className="grid gap-4 lg:grid-cols-2">
-      <div className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-md lg:col-span-2">
+    <section className="grid min-w-0 gap-4 lg:grid-cols-2">
+      <div className="min-w-0 rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-md lg:col-span-2">
         <h2 className="mb-3 text-lg font-semibold tracking-tight text-slate-900">Highlights</h2>
         <InsightHighlights insightSummary={insightSummary} />
       </div>
 
-      <div className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-md">
+      <div className="min-w-0 rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-md">
         <h2 className="mb-3 text-lg font-semibold tracking-tight text-slate-900">Spending by Category</h2>
         <SimpleTable
           headers={SPENDING_HEADERS}
@@ -39,7 +39,7 @@ export function InsightsPage({ breakdown, monthlyComparison, insightSummary }) {
         />
       </div>
 
-      <div className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-md">
+      <div className="min-w-0 rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-md">
         <h2 className="mb-3 text-lg font-semibold tracking-tight text-slate-900">Monthly Comparison</h2>
         <SimpleTable
           headers={MONTHLY_HEADERS}

@@ -4,14 +4,14 @@ const TRANSACTION_COLUMNS = ['Date', 'Description', 'Category', 'Type', 'Amount'
 
 export function TransactionTable({ transactions, role, emptyText, onRowClick }) {
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full min-w-[640px] border-separate border-spacing-0 overflow-hidden rounded-xl">
+    <div className="w-full max-w-full overflow-x-auto">
+      <table className="w-full table-auto border-separate border-spacing-0 overflow-hidden rounded-xl">
       <thead className="sticky top-0 z-10">
         <tr>
           {TRANSACTION_COLUMNS.map((column) => (
             <th
               key={column}
-              className="border-b border-slate-300/60 bg-slate-50 px-3 py-2 text-left text-xs font-bold uppercase tracking-wide text-slate-600"
+              className="border-b border-slate-300/60 bg-slate-50 px-2 py-2 text-left text-xs font-bold uppercase tracking-wide text-slate-600 sm:px-3"
             >
               {column}
             </th>
@@ -29,11 +29,11 @@ export function TransactionTable({ transactions, role, emptyText, onRowClick }) 
                 role === 'admin' ? 'cursor-pointer transition hover:translate-x-0.5 hover:bg-blue-100/60' : '',
               ].join(' ')}
             >
-              <td className="border-b border-slate-300/60 px-3 py-2 text-sm text-slate-700">{formatDate(transaction.date)}</td>
-              <td className="border-b border-slate-300/60 px-3 py-2 text-sm text-slate-700">{transaction.description}</td>
-              <td className="border-b border-slate-300/60 px-3 py-2 text-sm text-slate-700">{transaction.category}</td>
-              <td className="border-b border-slate-300/60 px-3 py-2 text-sm text-slate-700">{transaction.type}</td>
-              <td className={`border-b border-slate-300/60 px-3 py-2 text-sm ${transaction.type === 'expense' ? 'text-red-600' : 'text-green-600'}`}>
+              <td className="border-b border-slate-300/60 px-2 py-2 text-xs text-slate-700 sm:px-3 sm:text-sm">{formatDate(transaction.date)}</td>
+              <td className="border-b border-slate-300/60 px-2 py-2 text-xs text-slate-700 break-words sm:px-3 sm:text-sm">{transaction.description}</td>
+              <td className="border-b border-slate-300/60 px-2 py-2 text-xs text-slate-700 break-words sm:px-3 sm:text-sm">{transaction.category}</td>
+              <td className="border-b border-slate-300/60 px-2 py-2 text-xs text-slate-700 sm:px-3 sm:text-sm">{transaction.type}</td>
+              <td className={`border-b border-slate-300/60 px-2 py-2 text-xs ${transaction.type === 'expense' ? 'text-red-600' : 'text-green-600'} sm:px-3 sm:text-sm`}>
                 {transaction.type === 'expense' ? '-' : '+'}{formatCurrency(transaction.amount)}
               </td>
             </tr>

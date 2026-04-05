@@ -82,10 +82,10 @@ export function FiltersPanel({ filters, categories, role, onFilterChange, onRese
         </select>
       </label>
 
-      <div className="flex items-end gap-2">
+      <div className="flex flex-col items-stretch justify-end gap-2 sm:flex-row sm:items-end">
         <button
           type="button"
-          className="rounded-xl bg-slate-700 px-3.5 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-slate-800"
+          className="w-full rounded-xl bg-slate-700 px-3.5 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-slate-800 sm:w-auto"
           onClick={onResetFilters}
         >
           Reset filters
@@ -93,7 +93,7 @@ export function FiltersPanel({ filters, categories, role, onFilterChange, onRese
         {role === 'admin' ? (
           <button
             type="button"
-            className="rounded-xl bg-blue-600 px-3.5 py-2 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition hover:-translate-y-0.5 hover:bg-blue-700"
+            className="w-full rounded-xl bg-blue-600 px-3.5 py-2 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition hover:-translate-y-0.5 hover:bg-blue-700 sm:w-auto"
             onClick={onAddTransaction}
           >
             Add transaction

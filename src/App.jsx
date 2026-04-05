@@ -245,7 +245,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-100 text-slate-900">
-      <div className="mx-auto my-3 w-[calc(100%-1rem)] max-w-[1240px] sm:w-[calc(100%-2rem)]">
+      <div className="mx-auto my-3 w-full max-w-[1240px] px-2 sm:px-4">
       <AppNavbar
         page={page}
         onNavigate={navigate}

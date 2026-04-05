@@ -1,18 +1,29 @@
-import { PAGES } from '../../constants/app'
+import { PAGES } from "../../constants/app";
 
-export function AppNavbar({ page, onNavigate, role, onRoleChange, loading, syncStatus, onRefresh, onExport }) {
+export function AppNavbar({
+  page,
+  onNavigate,
+  role,
+  onRoleChange,
+  loading,
+  syncStatus,
+  onRefresh,
+  onExport,
+}) {
   return (
-    <header className="sticky top-2 z-30 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-md">
-      <nav className="flex flex-wrap gap-2" aria-label="Main navigation">
+    <header className="sticky top-2 z-30 flex w-full flex-wrap items-stretch justify-between gap-3 rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-md">
+      <nav className="grid w-full grid-cols-3 gap-2 sm:flex sm:w-auto sm:flex-wrap" aria-label="Main navigation">
         {PAGES.map((item) => (
           <button
             key={item.value}
             type="button"
             className={[
-              'rounded-xl border px-3 py-2 text-sm font-semibold transition',
-              'border-slate-200 bg-white text-slate-900 hover:-translate-y-0.5 hover:border-blue-300',
-              page === item.value ? 'border-blue-400 bg-blue-100 text-blue-900' : '',
-            ].join(' ')}
+              "w-full rounded-xl border px-3 py-2 text-center text-sm font-semibold transition sm:w-auto",
+              "border-slate-200 bg-white text-slate-900 hover:-translate-y-0.5 hover:border-blue-300",
+              page === item.value
+                ? "border-blue-400 bg-blue-100 text-blue-900"
+                : "",
+            ].join(" ")}
             onClick={() => onNavigate(item.value)}
           >
             {item.label}
@@ -20,11 +31,11 @@ export function AppNavbar({ page, onNavigate, role, onRoleChange, loading, syncS
         ))}
       </nav>
 
-      <div className="flex w-full flex-wrap items-center gap-2 lg:w-auto">
-        <label className="flex items-center gap-2 rounded-xl bg-white px-2 py-1.5">
+      <div className="grid w-full grid-cols-1 items-stretch gap-2 sm:grid-cols-2 lg:flex lg:w-auto lg:flex-wrap lg:items-center">
+        <label className="flex w-full items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-2 py-1.5 sm:w-auto sm:justify-start">
           <span className="text-sm font-semibold text-slate-600">Role</span>
           <select
-            className="rounded-lg border border-slate-300 bg-white px-2 py-1 text-sm text-slate-800 outline-none focus:ring-2 focus:ring-blue-200"
+            className="w-[140px] rounded-lg border border-slate-300 bg-white px-2 py-1 text-sm text-slate-800 outline-none focus:ring-2 focus:ring-blue-200"
             value={role}
             onChange={(event) => onRoleChange(event.target.value)}
           >
@@ -35,24 +46,28 @@ export function AppNavbar({ page, onNavigate, role, onRoleChange, loading, syncS
 
         <button
           type="button"
-          className="rounded-xl bg-slate-700 px-3.5 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-slate-800"
+          className="w-full rounded-xl bg-slate-700 px-3.5 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-slate-800 sm:w-auto"
           onClick={onRefresh}
         >
           Refresh mock API
         </button>
         <button
           type="button"
-          className="rounded-xl bg-blue-600 px-3.5 py-2 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition hover:-translate-y-0.5 hover:bg-blue-700"
+          className="w-full rounded-xl bg-blue-600 px-3.5 py-2 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)] transition hover:-translate-y-0.5 hover:bg-blue-700 sm:w-auto"
           onClick={onExport}
         >
           Export CSV
         </button>
 
-        <div className="min-w-0 px-1 py-1 lg:max-w-[220px]">
-          <span className="block text-sm font-bold text-emerald-800">{loading ? 'Loading...' : 'Ready'}</span>
-          <small className="block truncate text-xs text-slate-600">{syncStatus}</small>
+        <div className="min-w-0 px-1 py-1 sm:col-span-2 lg:max-w-[220px]">
+          <span className="block text-sm font-bold text-emerald-800">
+            {loading ? "Loading..." : "Ready"}
+          </span>
+          <small className="block truncate text-xs text-slate-600">
+            {syncStatus}
+          </small>
         </div>
       </div>
     </header>
-  )
+  );
 }
